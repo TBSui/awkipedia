@@ -8,7 +8,7 @@
 development:
   adapter: postgresql
   encoding: unicode
-  database: Awkipidia
+  database: Awkipedia
   pool: 5
   username: Sui
   password:
@@ -19,7 +19,7 @@ development:
 test: &test
   adapter: postgresql
   encoding: unicode
-  database: Awkipidia
+  database: Awkipedia
   pool: 5
   username: Sui
   password:

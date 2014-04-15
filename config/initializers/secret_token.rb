@@ -9,4 +9,19 @@
 
 # Make sure your secret_key_base is kept private
 # if you're sharing your code publicly.
-Awkipidia::Application.config.secret_key_base = 'bf7d6bc18d37d38b6c96a4dfba828b86a33782aea68e87933b1812b80c7e22c90c4226afdce7b11ff54a1a2916af4590e465e5976c574378f93a69527cb8e28f'
+require 'securerandom'
+
+def secure_token
+  token_file = Rails.root.join('.secret')
+  if File.exist?(token_file)
+    # Use the existing token.
+    File.read(token_file).chomp
+  else
+    # Generate a new token and store it in token_file.
+    token = SecureRandom.hex(64)
+    File.write(token_file, token)
+    token
+  end
+end
+
+Awkipedia::Application.config.secret_key_base = secure_token

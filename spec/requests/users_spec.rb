@@ -1,10 +1,11 @@
 require 'spec_helper'
 
-describe "Users" do
-  before { @user = User.new(name: "Example User", email: "user@example.com") }
+describe "User pages" do
 
-  subject {@user}
-
-  it { should respond_to(:name) }
-  it { should respond_to(:email) }
+	subject { page }
+	describe "signup page" do
+  		before { visit signup_path }  	
+    	it { should have_content('Sign up') }
+    	it { should have_title(full_title('Sign up')) }
+	end
 end

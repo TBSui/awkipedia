@@ -3,4 +3,4 @@
 
 require File.expand_path('../config/application', __FILE__)
 
-Awkipidia::Application.load_tasks
+Awkipedia::Application.load_tasks
