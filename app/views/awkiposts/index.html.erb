@@ -6,7 +6,11 @@
     <ul>
     	<li> 
            <%= awkipost.content %>
+           <p>
+           <%= link_to gravatar_for(awkipost.user, size: 52), awkipost.user %>
            <%= awkipost.user.name %>
+           <p>
+           <%= awkipost.created_at %>
          </li>
 	</ul>
   <% end %>
