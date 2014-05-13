@@ -1,0 +1,14 @@
+<% provide(:title, 'All awkiposts') %>
+<h1>All awkiposts</h1>
+
+<ul class="awkiposts">
+  <% @awkiposts.each do |awkipost| %>
+    <ul>
+    	<li> 
+           <%= awkipost.content %>
+           <%= awkipost.user.name %>
+         </li>
+	</ul>
+  <% end %>
+</ul>
+

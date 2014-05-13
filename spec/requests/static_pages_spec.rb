@@ -40,4 +40,10 @@ describe "Static pages" do
     it { should have_content('About') }
     it { should have_title(full_title('About Us')) }
   end
+
+  describe "Awkipost page" do
+    before { visit awkiposts_path }
+    it { should have_content('All awkiposts') }
+    it { should have_title(full_title('All awkiposts')) }
+  end
 end

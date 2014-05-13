@@ -3,6 +3,7 @@ class AwkipostsController < ApplicationController
   before_action :correct_user,   only: :destroy
 
   def index
+    @awkiposts = Awkipost.order('created_at DESC')
   end
 
   def create
