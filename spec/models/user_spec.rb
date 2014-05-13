@@ -17,6 +17,7 @@ describe User do
   it { should respond_to(:remember_token) }
   it { should respond_to(:authenticate) }
   it { should respond_to(:admin) }
+  it { should respond_to(:awkiposts)}
 
   it { should be_valid }
   it { should_not be_admin }
@@ -80,4 +81,27 @@ describe User do
     it { should be_admin }
   end
 
+  describe "awkipost associations" do
+
+    before { @user.save }
+    let!(:older_awkipost) do
+      FactoryGirl.create(:awkipost, user: @user, created_at: 1.day.ago)
+    end
+    let!(:newer_awkipost) do
+      FactoryGirl.create(:awkipost, user: @user, created_at: 1.hour.ago)
+    end
+
+    it "should have the right awkiposts in the right order" do
+      expect(@user.awkiposts.to_a).to eq [newer_awkipost, older_awkipost]   
+    end
+
+    it "should destroy associated awkiposts" do
+      awkiposts = @user.awkiposts.to_a
+      @user.destroy
+      expect(awkiposts).not_to be_empty
+      awkiposts.each do |awkipost|
+        expect(Awkipost.where(id: awkipost.id)).to be_empty
+      end
+    end
+  end
 end
