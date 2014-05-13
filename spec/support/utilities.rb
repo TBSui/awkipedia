@@ -7,7 +7,7 @@ def full_title(page_title)
       "#{base_title} | #{page_title}"
     end
 end
-'''
+
 def sign_in(user, options={})
   if options[:no_capybara]
   	# Sign in when not using Capybara.
@@ -21,7 +21,7 @@ def sign_in(user, options={})
   	click_button "Sign in"
   end
 end
-'''
+
 RSpec::Matchers.define :have_error_message do |message|
   match do |page|
     expect(page).to have_selector('div.alert.alert-error', text: message)
