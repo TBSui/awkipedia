@@ -8,4 +8,13 @@
       </h1>
     </section>
   </aside>
+  <div class="span8">
+    <% if @user.awkiposts.any? %>
+      <h3>Awkiposts (<%= @user.awkiposts.count %>)</h3>
+      <ol class="awkiposts">
+        <%= render @awkiposts %>
+      </ol>
+      <%= will_paginate @awkiposts %>
+    <% end %>
+  </div>
 </div>
