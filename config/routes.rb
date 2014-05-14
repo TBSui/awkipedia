@@ -11,6 +11,10 @@ Awkipedia::Application.routes.draw do
   match '/about',   to: 'static_pages#about',   via: 'get'
   match '/contact', to: 'static_pages#contact', via: 'get'
   match '/awkiposts', to: 'awkiposts#index',     via: 'get'
+
+  get  "refresh"  => "static_pages#refreshawkiposts", :as => "refresh"
+  get "votedup"  => "static_pages#votedup", :as => "votedup"
+  get  "voteddown"  => "static_pages#voteddown", :as => "voteddown"
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 

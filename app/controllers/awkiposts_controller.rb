@@ -8,6 +8,8 @@ class AwkipostsController < ApplicationController
 
   def create
   	@awkipost = current_user.awkiposts.build(awkipost_params)
+    @awkipost.ups = 0
+    @awkipost.downs = 0
     if @awkipost.save
       flash[:success] = "Awkipost created!"
       redirect_to root_url

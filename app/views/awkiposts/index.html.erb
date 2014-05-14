@@ -3,16 +3,60 @@
 
 <ul class="awkiposts">
   <% @awkiposts.each do |awkipost| %>
-    <ul>
-    	<li> 
-           <%= awkipost.content %>
-           <p>
-           <%= link_to gravatar_for(awkipost.user, size: 52), awkipost.user %>
-           <%= awkipost.user.name %>
-           <p>
-           <%= awkipost.created_at %>
-         </li>
-	</ul>
+    <div class="awkiposts"> 
+          <div class="votebox">
+                       <a href="" id="<%= awkipost.id %>" name="up" class="votes">
+                       <div class='up'></div><%= awkipost.ups %> likes</a>
+         
+                       <a href=""  id="<%= awkipost.id %>"  name="down" class="votes">
+                       <div class='down'></div><%= awkipost.downs %> dislikes</a>
+          </div>
+          <%= link_to gravatar_for(awkipost.user, size: 52), awkipost.user if awkipost.user%>
+          <%= awkipost.user.name if awkipost.user%>
+          <div class="awkiposttext">
+          <blockquote>
+          <p><%= awkipost.content %></p>
+          <small><%= awkipost.user %></small>
+          </blockquote>
+          <div class="awkiposttime">created at  <%= awkipost.created_at %></div></div> 
+    </div>
   <% end %>
 </ul>
 
+<script>
+$(document).ready(function(){
+var timelyrefreshAwkipostFeeds = function(){
+url = '/refresh'
+$.get(url,function(data,status){
+$('#awkipostsfeed').html(data)
+return false
+});
+};
+setInterval(timelyrefreshAwkipostFeeds,60000);
+
+$(".votes").click(function()
+{
+var id = $(this).attr("id");
+var name = $(this).attr("name");
+var parent = $(this)
+if (name=='up')
+{
+
+$.get('/votedup', {id: id},
+function(data,status){
+parent.html(data);
+});
+}
+else
+{
+$.get('/voteddown', {id: id},
+function(data,status){
+parent.html(data);
+});
+}
+return false;
+});
+
+});
+
+</script>

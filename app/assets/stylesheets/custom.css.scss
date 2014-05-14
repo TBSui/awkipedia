@@ -194,11 +194,54 @@ input {
     border-top: 1px solid #e8e8e8;
   }
 }
+.awkipostsimg
+{
+min-height:100px;
+margin-bottom:10px;
+border-bottom:solid 1px #3b5998;
+}
+.votebox
+{
+float:right;
+height:50px;
+width:130px;
+}
+.up
+{
+height:30px;
+background-image:url(scribbles_like.png);
+background-repeat:no-repeat;
+margin-bottom:5px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+}
+
+.down
+{
+height:30px;
+background-image:url(scribbles_dislike.png);
+background-repeat:no-repeat;
+margin-top:5px;
+-moz-border-radius: 6px;
+-webkit-border-radius: 6px;
+}
+
 .content {
+margin-left:70px;
+min-height:50px;
+word-wrap:break-word;
+overflow:hidden;
+padding:5px;
+display:block;
+font-family:'Georgia', Times New Roman, Times, serif;
   display: block;
 }
+
 .timestamp {
-  color: $grayLight;
+  font-size:11px;
+  color:#999;
+  font-family:Arial, Helvetica, sans-serif;
+  margin-top:10px;
 }
 .gravatar {
   float: left;
@@ -209,4 +252,23 @@ aside {
     height: 100px;
     margin-bottom: 5px;
   }
+}
+
+
+.awkiposttext
+{
+margin-left:70px;
+min-height:50px;
+word-wrap:break-word;
+overflow:hidden;
+padding:5px;
+display:block;
+font-family:'Georgia', Times New Roman, Times, serif
+}
+.awkiposttime
+{
+font-size:11px;
+color:#999;
+font-family:Arial, Helvetica, sans-serif;
+margin-top:10px;
 }
