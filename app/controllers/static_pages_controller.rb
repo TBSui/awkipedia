@@ -24,7 +24,7 @@ class StaticPagesController < ApplicationController
  end
 
  def voteddown
- @sawkipost = Awkipost.find(params[:id])
+ @awkipost = Awkipost.find(params[:id])
  @awkipost.downs=@awkipost.downs+1
  @awkipost.save
  render :text => "<div class='down'></div>"+@awkipost.downs.to_s+" dislikes"

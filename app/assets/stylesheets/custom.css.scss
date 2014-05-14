@@ -187,31 +187,26 @@ input {
 
 .awkiposts {
   list-style: none;
-  margin: 10px 0 0 0;
+  margin: 70px 0 0 0;
 
   li {
     padding: 10px 0;
     border-top: 1px solid #e8e8e8;
   }
 }
-.awkipostsimg
-{
-min-height:100px;
-margin-bottom:10px;
-border-bottom:solid 1px #3b5998;
-}
+
 .votebox
 {
 float:right;
-height:50px;
-width:130px;
+height:35px;
+width:100px;
 }
 .up
 {
 height:30px;
 background-image:url(scribbles_like.png);
 background-repeat:no-repeat;
-margin-bottom:5px;
+margin-bottom:1px;
 -moz-border-radius: 6px;
 -webkit-border-radius: 6px;
 }
@@ -221,7 +216,7 @@ margin-bottom:5px;
 height:30px;
 background-image:url(scribbles_dislike.png);
 background-repeat:no-repeat;
-margin-top:5px;
+margin-top:1px;
 -moz-border-radius: 6px;
 -webkit-border-radius: 6px;
 }
