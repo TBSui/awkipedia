@@ -1,11 +1,13 @@
-<li>
-  <span class="content"><%= awkipost.content %></span>
-  <span class="timestamp">
-    Posted <%= time_ago_in_words(awkipost.created_at) %> ago.
-  </span>
-  <% if current_user?(awkipost.user) %>
-    <%= link_to "delete", awkipost, method: :delete,
+<% awkiposts_streams.each do |awkipost| %>
+	<li>
+  		<span class="content"><%= awkipost.content %></span>
+  		<span class="timestamp">
+    	Posted <%= time_ago_in_words(awkipost.created_at) %> ago.
+  	</span>
+  		<% if current_user?(awkipost.user) %>
+    		<%= link_to "delete", awkipost, method: :delete,
                                      data: { confirm: "You sure?" },
                                      title: awkipost.content %>
-  <% end %>
-</li>
+  		<% end %>
+	</li>
+<% end %>

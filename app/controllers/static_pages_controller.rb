@@ -31,7 +31,7 @@ class StaticPagesController < ApplicationController
  end
 
   def refreshawkiposts
-  render :partial => 'awkiposts.html.erb', :locals => { :awkiposts_streams => @awkiposts_streams }
+  render :partial => '/awkiposts/awkipost', :locals => { :awkiposts_streams => @awkiposts_streams }
   end
 
   protected
