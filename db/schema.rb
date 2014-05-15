@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140514022310) do
+ActiveRecord::Schema.define(version: 20140515012252) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -21,8 +21,8 @@ ActiveRecord::Schema.define(version: 20140514022310) do
     t.integer  "user_id"
     t.datetime "created_at"
     t.datetime "updated_at"
-    t.integer  "ups"
-    t.integer  "downs"
+    t.integer  "ups",        default: 0
+    t.integer  "downs",      default: 0
   end
 
   add_index "awkiposts", ["user_id", "created_at"], name: "index_awkiposts_on_user_id_and_created_at", using: :btree
