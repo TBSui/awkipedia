@@ -204,7 +204,7 @@ width:100px;
 .up
 {
 height:30px;
-background-image:url(scribbles_like.png);
+background-image:image-url("scribbles_like.png");
 background-repeat:no-repeat;
 margin-bottom:1px;
 -moz-border-radius: 6px;
@@ -214,7 +214,7 @@ margin-bottom:1px;
 .down
 {
 height:30px;
-background-image:url(scribbles_dislike.png);
+background-image:image-url("scribbles_dislike.png");
 background-repeat:no-repeat;
 margin-top:1px;
 -moz-border-radius: 6px;
